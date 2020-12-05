@@ -1,2 +1,2 @@
 # fastq_gc_stats.py
-GC-content of raw Fastq reads
+The script is designed to analyze GC-content of raw Fastq reads. Use -h option for description.
