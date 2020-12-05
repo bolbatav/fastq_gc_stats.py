@@ -2,6 +2,7 @@
 import itertools
 import argparse
 import os
+import seaborn as sns
 
 parser=argparse.ArgumentParser(description='The script is designed to analyze GC-content of reads in Fastq-files.')
 parser.add_argument('-f', '--file', type=str, metavar='', required=True, help='Input file to analyze.')
@@ -19,3 +20,9 @@ if output:
 	gc='\n'.join(gc)
 	with open((output), 'w') as outf:
 		outf.write(gc)
+		
+#Plotting
+plot = sns.displot(gc, kind = "kde", fill=True)
+plot.set(xlabel = 'GC - content', 
+		 ylabel = 'Density', title='Distribution of GC-content')
+plot.savefig('G_C_Distribution.png')
