@@ -4,7 +4,7 @@ import argparse
 
 parser=argparse.ArgumentParser(description='''The script is Fastq files by specified ranges of GC-content in reads. Reads that don't match any specified range will be moved to the "unassigned.fastq" file. Be careful: the sctipt does NOT overwrite files, but appends them. Be sure not to end up with files with duplicate reads.''')
 parser.add_argument('-f', '--file', type=str, metavar='', required=True, help='Input file to analyze.')
-parser.add_argument('-r', '--ranges', type=str, metavar='float:float,float:float', required=True, help="Non-overlapping ranges of reads' GC-content for read sorting. Use a single non-spaced line. Example: 0.2:0.3,0.4:0.5")
+parser.add_argument('-r', '--ranges', type=str, metavar='', required=True, help="Non-overlapping ranges of reads' GC-content for read sorting. Use a single non-spaced line. Example: 0.2:0.3,0.4:0.5")
 parser.add_argument('-p', '--prefix', type=str, metavar='', required=False, help='Prefix (usually path to directory) of the output files.')
 arguments=parser.parse_args()
 
