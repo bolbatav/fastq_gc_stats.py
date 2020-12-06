@@ -14,15 +14,16 @@ output=arguments.out
 gc=[]
 with open(inputf, 'r') as inf:
 	for line in itertools.islice(inf, 1, None, 4):
-		gc+=[str((line.upper().count('G')+line.upper().count('C'))/len(line.strip()))]
-
-if output:
-	gc='\n'.join(gc)
-	with open((output), 'w') as outf:
-		outf.write(gc)
-		
+		gc+=[(line.upper().count('G')+line.upper().count('C'))/len(line.strip())]
 #Plotting
 plot = sns.displot(gc, kind = "kde", fill=True)
 plot.set(xlabel = 'GC - content', 
 		 ylabel = 'Density', title='Distribution of GC-content')
 plot.savefig('G_C_Distribution.png')
+
+if output:
+	for i in range(len(gc)):
+		gc[i]=str(gc[i])
+	gc='\n'.join(gc)
+	with open((output), 'w') as outf:
+		outf.write(gc)
