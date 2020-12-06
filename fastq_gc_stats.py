@@ -14,7 +14,7 @@ output=arguments.out
 gc=[]
 with open(inputf, 'r') as inf:
 	for line in itertools.islice(inf, 1, None, 4):
-		gc+=[str((line.upper().count('G')+line.upper().count('C'))/len(line))]
+		gc+=[str((line.upper().count('G')+line.upper().count('C'))/len(line.strip()))]
 
 if output:
 	gc='\n'.join(gc)
